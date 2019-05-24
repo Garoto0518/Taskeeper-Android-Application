@@ -22,12 +22,15 @@ public class ToDoAdapter extends RecyclerView.Adapter <ToDoAdapter.MyViewHolder>
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MyViewHolder  onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_todo,viewGroup, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+        myViewHolder.tituloToDo.setText(toDoPages.get(i).getTituloToDo());
+        myViewHolder.descripcionToDo.setText(toDoPages.get(i).getDescripcionToDo());
+        myViewHolder.fechaToDo.setText(toDoPages.get(i).getFechaToDo());
 
     }
 
@@ -38,11 +41,13 @@ public class ToDoAdapter extends RecyclerView.Adapter <ToDoAdapter.MyViewHolder>
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
+        TextView tituloToDo, descripcionToDo, fechaToDo;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tituloToDo = (TextView) itemView.findViewById(R.id.tituloDeAplicacion);
-            descripcion = (TextView) itemView.findViewById(R.id.tituloDeAplicacion);
-            tituloToDo = (TextView) itemView.findViewById(R.id.tituloDeAplicacion);
+            descripcionToDo = (TextView) itemView.findViewById(R.id.descriptionToDo);
+            fechaToDo = (TextView) itemView.findViewById(R.id.fechaToDoApp);
 
         }
     }
