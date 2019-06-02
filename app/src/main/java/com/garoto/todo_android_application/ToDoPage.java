@@ -2,12 +2,13 @@ package com.garoto.todo_android_application;
 
 public class ToDoPage {
 
-    String tituloToDo, fechaToDo, descripcionToDo;
+    String tituloToDo, fechaToDo, descripcionToDo, keyDoes;
 
-    public ToDoPage(String tituloToDo, String fechaToDo, String descripcionToDo) {
+    public ToDoPage(String tituloToDo, String fechaToDo, String descripcionToDo, String keyDoes) {
         this.tituloToDo = tituloToDo;
         this.fechaToDo = fechaToDo;
         this.descripcionToDo = descripcionToDo;
+        this.keyDoes = keyDoes;
     }
 
     public String getTituloToDo() {
@@ -32,5 +33,13 @@ public class ToDoPage {
 
     public void setDescripcionToDo(String descripcionToDo) {
         this.descripcionToDo = descripcionToDo;
+    }
+
+    public String getKeyDoes(){
+        return keyDoes;
+    }
+
+    public void setKeyDoes(String keyDoes){
+        this.keyDoes = keyDoes;
     }
 }

@@ -27,6 +27,7 @@ public class NewTask extends AppCompatActivity {
     Button btnSaveTask, btnCancel;
     DatabaseReference reference;
     Integer todoNum = new Random().nextInt();
+    String keyDoes = Integer.toString(todoNum);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +57,10 @@ public class NewTask extends AppCompatActivity {
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        dataSnapshot.getRef().child("tituloDeAplication").setValue(tituloToDo.getText().toString());
-                        dataSnapshot.getRef().child("descriptionToDo").setValue(descriptionToDo.getText().toString());
-                        dataSnapshot.getRef().child("fechaToDoApp").setValue(timelineToDo.getText().toString());
+                        dataSnapshot.getRef().child("titulotodo").setValue(tituloToDo.getText().toString());
+                        dataSnapshot.getRef().child("descripciontodo").setValue(descriptionToDo.getText().toString());
+                        dataSnapshot.getRef().child("fechatodo").setValue(timelineToDo.getText().toString());
+                        dataSnapshot.getRef().child("keyDoes").setValue(keyDoes);
 
                         Intent newToDo = new Intent(NewTask.this, HomePage.class);
                         startActivity(newToDo);
